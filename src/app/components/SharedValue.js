@@ -1,0 +1,5 @@
+module.exports = {
+  NAVBAR_HEIGHT: 70,
+  FOOTER_HEIGHT: 60,
+  NAVBAR_COLLAPSE_ZINDEX: 99
+};

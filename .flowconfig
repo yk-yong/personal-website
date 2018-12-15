@@ -1,0 +1,9 @@
+[ignore]
+<PROJECT_ROOT>/public
+<PROJECT_ROOT>/scripts
+<PROJECT_ROOT>/config
+<PROJECT_ROOT>/src/__test__
+
+[options]
+module.file_ext=.sass
+module.file_ext=.scss

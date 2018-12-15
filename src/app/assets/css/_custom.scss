@@ -1,0 +1,141 @@
+@import "./custom_variables";
+@import "~bootstrap/scss/bootstrap";
+@import "./border";
+@import "./posts";
+
+.active {
+  text-decoration-line: underline;
+  -moz-text-decoration-line: underline;
+}
+
+.hover-link {
+  width: 0;
+  height: 3px;
+  background-color: #ffffff;
+
+  transition: width ease-in 0.2s;
+}
+
+a.nav-link.active + .hover-link {
+  width: 80%;
+}
+
+a.nav-link:hover + .hover-link {
+  width: 80%;
+}
+
+.introduction-container-bg {
+  background-image: -moz-linear-gradient(180deg, #a577ff, #ff69d7, #ff76a3, #ff9e75, #ffcd5e, #fff54f); /* ff3.6+ */
+  background-image: -webkit-gradient(linear, top, bottom, #a577ff, #ff69d7, #ff76a3, #ff9e75, #ffcd5e, #fff54f); /* safari4+,chrome */
+  background-image: -webkit-linear-gradient(180deg, #a577ff, #ff69d7, #ff76a3, #ff9e75, #ffcd5e, #fff54f); /* safari5.1+,chrome10+ */
+  background-image: -o-linear-gradient(180deg, #a577ff, #ff69d7, #ff76a3, #ff9e75, #ffcd5e, #fff54f); /* opera 11.10+ */
+  background-image: -ms-linear-gradient(180deg, #a577ff, #ff69d7, #ff76a3, #ff9e75, #ffcd5e, #fff54f); /* ie10+ */
+  background-image: linear-gradient(180deg, #a577ff, #ff69d7, #ff76a3, #ff9e75, #ffcd5e, #fff54f); /* w3c */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#A577FF', endColorstr='#FFF54F',GradientType=1 ); /* ie6-9 */
+}
+
+.intro-sec {
+  background-color: rgba(255, 255, 255, 0.4);
+  padding: 1rem;
+  margin: 0 1rem;
+
+  p {
+    font-size: 1.3rem;
+    font-weight: 500;
+  }
+}
+
+.social-sec {
+  padding: 1rem;
+  margin: 1rem;
+
+  .social-icon {
+    padding: 0 1rem;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+.scroll-down-icon {
+  :hover {
+    cursor: pointer;
+  }
+}
+
+.intro-sub {
+  min-height: 20rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.bg-img {
+  background-clip: content-box;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &.about-me-bg-img {
+    background-image: url("../images/About_Me.png");
+  }
+
+  &.blog-img {
+    background-image: url("../images/blog_img.jpg");
+  }
+}
+
+.bg-lightgray {
+  background-color: rgb(185, 185, 185);
+}
+.bg-gray {
+  background-color: rgba(125, 125, 125, 0.5);
+}
+
+.lead-2x {
+  font-size: 2rem;
+}
+.lead-3x {
+  font-size: 3rem;
+}
+
+.font-weight-100 {
+  font-weight: $weight-100;
+}
+.font-weight-200 {
+  font-weight: $weight-200;
+}
+.font-weight-300 {
+  font-weight: $weight-300;
+}
+.font-weight-400 {
+  font-weight: $weight-400;
+}
+.font-weight-500 {
+  font-weight: $weight-500;
+}
+.font-weight-600 {
+  font-weight: $weight-600;
+}
+.font-weight-700 {
+  font-weight: $weight-700;
+}
+.font-weight-800 {
+  font-weight: $weight-800;
+}
+.font-weight-900 {
+  font-weight: $weight-900;
+}
+
+.go-to-top {
+  position: absolute;
+  bottom: 70px;
+  right: 20px;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  border: 3px solid rgba(165, 119, 255, 0.7);
+  cursor: pointer;
+}

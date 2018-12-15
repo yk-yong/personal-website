@@ -1,0 +1,8 @@
+{
+  "presets": ["react-app", "@babel/preset-flow"],
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  }
+}
