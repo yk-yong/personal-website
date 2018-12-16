@@ -17,7 +17,7 @@ export default class BlogPosts extends Component<Props> {
     return (
       <div className="col-12 col-md-6 col-lg-4">
         <div className="posts-container my-4 p-2">
-          <NavLink to={`/blog/post/${this.props.post.slug}`} className="posts-overlay">
+          <NavLink to={{ pathname: `/blog/post/${this.props.post.slug}`, state: { postContent: this.props.post.content } }} className="posts-overlay">
             <div className="d-flex justify-content-center align-items-center h-100 w-100">
               <FontAwesomeIcon icon={"search"} size="2x" color={"#000"} />
             </div>
@@ -31,15 +31,7 @@ export default class BlogPosts extends Component<Props> {
           <div className="posts-feature-img">
             <img src={`${this.props.post.featureImage}`} alt="feature" className="img-fluid" />
           </div>
-          <div className="posts-meta">
-            <div className="my-2">
-              <p>
-                <span>by </span>
-                {this.props.post.author}
-              </p>
-            </div>
-          </div>
-          <div dangerouslySetInnerHTML={{ __html: this.props.post.excerpt }} />
+          <div className="mt-3" dangerouslySetInnerHTML={{ __html: this.props.post.excerpt }} />
         </div>
       </div>
     );

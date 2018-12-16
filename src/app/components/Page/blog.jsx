@@ -46,14 +46,10 @@ export default class Blog extends Component<Props, State> {
     this._fetchBlogPosts();
   }
 
-  componentDidCatch(error: any, info: any) {
-    console.error("error", error);
-    console.log("info", info);
-  }
-
   _fetchBlogPosts = async () => {
     try {
       const response = await Posts.fetchPosts(this.currentPage, this.PER_PAGE);
+      console.log(response);
 
       if (response && response.data) {
         const extractedData = this._extractDataFrom(response.data);
@@ -70,14 +66,14 @@ export default class Blog extends Component<Props, State> {
 
   _extractDataFrom = (originalData: Array<any>): Array<any> => {
     return originalData.map((post, index) => {
-      const { id, title, excerpt, date, _embedded, slug } = post;
+      const { id, title, excerpt, date, _embedded, slug, content } = post;
       return {
         id,
         date,
         slug,
         title: title.rendered,
         excerpt: excerpt.rendered.match(/^<p>.*<\/p>$/gm)[0],
-        author: _embedded["author"][0].name,
+        content: content.rendered,
         featureImage: _embedded["wp:featuredmedia"][0].source_url
       };
     });
@@ -105,7 +101,6 @@ export default class Blog extends Component<Props, State> {
 
         if (response.status === 200) {
           const extractedData = this._extractDataFrom(response.data);
-          console.log("data", extractedData);
 
           const { posts } = this.state;
           const newPosts: Array<any> = posts.concat(extractedData);
@@ -141,7 +136,7 @@ export default class Blog extends Component<Props, State> {
           <div className="col">
             <div className="d-flex justify-content-center my-3">
               {(isLoadMore && <FontAwesomeIcon icon={"spinner"} color={"#a577ff"} size="2x" spin />) || (
-                <LoadMore onClickLoadMoreHandler={this._onClickLoadMore} />
+                <LoadMore onClickLoadMoreHandler={this._onClickLoadMore} disabled={!this.state.isReady} />
               )}
             </div>
           </div>
@@ -166,7 +161,6 @@ const ContentPlaceholder = props => (
       <rect x="247.7" y="47.67" rx="0" ry="0" width="155" height="14" />
       <rect x="11.7" y="18.67" rx="0" ry="0" width="0" height="0" />
       <rect x="11.7" y="79.67" rx="0" ry="0" width="420" height="118.67" />
-      <rect x="11.7" y="211.67" rx="0" ry="0" width="151" height="21" />
       <rect x="11.7" y="246.67" rx="0" ry="0" width="420" height="61" />
     </ContentLoader>
   </div>
@@ -174,7 +168,7 @@ const ContentPlaceholder = props => (
 
 const LoadMore = props => (
   <div>
-    <Button color={"primary"} onClick={props.onClickLoadMoreHandler}>
+    <Button color={"primary"} onClick={props.onClickLoadMoreHandler} disabled={props.disabled}>
       More
     </Button>
   </div>

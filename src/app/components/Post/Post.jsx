@@ -1,15 +1,21 @@
 /* @flow */
+import React, { PureComponent } from "react";
+import { Container } from "reactstrap";
 
-import React, { Component } from "react";
+import "./post.scss";
 
-import Posts from "../../action/posts";
-import styles from "./post.module.css";
-
-type Props = {};
-export default class Content extends Component<Props, void> {
-  componentDidMount() {}
-
+type Props = {
+  location: any
+};
+type State = {};
+export default class Content extends PureComponent<Props, State> {
   render() {
-    return <div className={styles.content} />;
+    const { state } = this.props.location;
+
+    return (
+      <Container>
+        <div dangerouslySetInnerHTML={{ __html: state.postContent }} className="post dark-theme" />
+      </Container>
+    );
   }
 }

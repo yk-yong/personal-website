@@ -1,0 +1,63 @@
+.post {
+  pre {
+    &.wp-block-code {
+      border: 2px rgb(41, 41, 41) solid;
+      padding: 20px;
+    }
+
+    code {
+      font-size: 87.5%;
+      word-break: break-word;
+    }
+  }
+
+  &.dark-theme {
+    pre {
+      &.wp-block-code {
+        background-color: rgb(41, 41, 41);
+      }
+
+      code {
+        color: rgb(245, 245, 245);
+      }
+    }
+  }
+
+  blockquote {
+    &.wp-block-quote {
+      padding: 20px;
+      background-color: rgba(200, 200, 200, 0.3);
+
+      p {
+        font-style: italic;
+      }
+
+      cite {
+        display: block;
+        text-align: right;
+      }
+    }
+  }
+
+  div {
+    &.wp-block-image {
+      img {
+        max-height: 300px;
+        max-width: 400px;
+      }
+    }
+  }
+
+  .aligncenter {
+    text-align: center;
+  }
+}
+
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post h5,
+.post h6 {
+  margin: 2rem 0;
+}
