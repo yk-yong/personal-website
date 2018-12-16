@@ -42,15 +42,13 @@ export default class Blog extends Component<Props, State> {
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     this._fetchBlogPosts();
   }
 
   _fetchBlogPosts = async () => {
     try {
       const response = await Posts.fetchPosts(this.currentPage, this.PER_PAGE);
-      console.log(response);
-
       if (response && response.data) {
         const extractedData = this._extractDataFrom(response.data);
 
@@ -102,13 +100,12 @@ export default class Blog extends Component<Props, State> {
         if (response.status === 200) {
           const extractedData = this._extractDataFrom(response.data);
 
-          const { posts } = this.state;
-          const newPosts: Array<any> = posts.concat(extractedData);
-
-          this.setState({
-            posts: newPosts,
-            isLoadMore: false
-          });
+          this.setState(
+            update(this.state, {
+              posts: { $push: extractedData },
+              isLoadMore: { $set: false }
+            })
+          );
         }
       } catch (error) {
         this.setState({ isLoadMore: false });
