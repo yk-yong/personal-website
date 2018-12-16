@@ -5,12 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { NAVBAR_HEIGHT, FOOTER_HEIGHT } from "../SharedValue";
 
-const { innerHeight } = window;
-
 type Props = {};
 type State = {};
 export default class About extends PureComponent<Props, State> {
   render() {
+    const { innerHeight } = window;
     return (
       <Container style={{ minHeight: innerHeight - NAVBAR_HEIGHT - FOOTER_HEIGHT }}>
         <div className="row">
