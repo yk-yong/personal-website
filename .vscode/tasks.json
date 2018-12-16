@@ -6,12 +6,23 @@
     {
       "type": "npm",
       "script": "start",
-      "problemMatcher": ["$eslint-compact"]
+      "problemMatcher": [
+        "$eslint-compact"
+      ]
     },
     {
       "type": "npm",
       "script": "build",
-      "problemMatcher": ["$eslint-compact"]
+      "problemMatcher": [
+        "$eslint-compact"
+      ]
+    },
+    {
+      "type": "npm",
+      "script": "build:staging",
+      "problemMatcher": [
+        "$eslint-compact"
+      ]
     }
   ]
 }
