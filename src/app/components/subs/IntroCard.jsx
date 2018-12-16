@@ -11,7 +11,7 @@ export default class IntroCard extends Component<Props> {
       <div className={"d-flex flex-column align-items-center"}>
         <div className={"intro-sec text-center"}>
           <p>
-            Hi, I'm <u>John</u>
+            Hi, I'm <u>Yik Kok</u>
           </p>
           <p>React Native developer and tech enthusiast</p>
         </div>
