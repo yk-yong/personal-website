@@ -17,7 +17,10 @@ export default class BlogPosts extends Component<Props> {
     return (
       <div className="col-12 col-md-6 col-lg-4">
         <div className="posts-container my-4 p-2">
-          <NavLink to={{ pathname: `/blog/post/${this.props.post.slug}`, state: { postContent: this.props.post.content } }} className="posts-overlay">
+          <NavLink
+            to={{ pathname: `/blog/post/${this.props.post.slug}`, state: { postContent: this.props.post.content, postTitle: this.props.post.title } }}
+            className="posts-overlay"
+          >
             <div className="d-flex justify-content-center align-items-center h-100 w-100">
               <FontAwesomeIcon icon={"search"} size="2x" color={"#000"} />
             </div>

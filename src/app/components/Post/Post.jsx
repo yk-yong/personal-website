@@ -14,6 +14,11 @@ export default class Content extends Component<Props, State> {
 
     return (
       <Container>
+        <div className="my-5">
+          <h1 className="lead-3x">
+            <u>{state.postTitle}</u>
+          </h1>
+        </div>
         <div dangerouslySetInnerHTML={{ __html: state.postContent }} className="post dark-theme" />
       </Container>
     );
