@@ -26,6 +26,13 @@ export default class IntroCard extends Component<Props> {
               <FontAwesomeIcon icon={["fab", "linkedin"]} size={"3x"} />
             </a>
           </div>
+          <div>
+            <div className={"fiver-round d-flex justify-content-center align-items-center"}>
+              <a href={config.fiver_url} target="_blank" rel="noopener noreferrer" className="fiver-name">
+                fiver
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     );

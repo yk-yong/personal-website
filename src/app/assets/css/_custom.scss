@@ -139,3 +139,14 @@ a.nav-link:hover + .hover-link {
   border: 3px solid rgba(165, 119, 255, 0.7);
   cursor: pointer;
 }
+
+.fiver-round {
+  border-radius: 50%;
+  background-color: rgb(41, 41, 41);
+  height: 65px;
+  width: 65px;
+
+  .fiver-name {
+    color: #fff;
+  }
+}

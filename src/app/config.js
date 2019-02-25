@@ -4,6 +4,7 @@ export default {
   blog_url: process.env.REACT_APP_BLOG_URL,
   github_url: process.env.REACT_APP_GITHUB_URL,
   linkedIn_url: process.env.REACT_APP_LINKEDIN_URL,
+  fiver_url: process.env.REACT_APP_FIVER_URL,
   author: "Yik Kok",
   currentYear: 2018
 };
