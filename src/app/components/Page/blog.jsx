@@ -50,6 +50,8 @@ export default class Blog extends Component<Props, State> {
     try {
       const response = await Posts.fetchPosts(this.currentPage, this.PER_PAGE);
       if (response && response.data) {
+        console.log(response.data);
+
         const extractedData = this._extractDataFrom(response.data);
 
         this.setState(
@@ -80,26 +82,31 @@ export default class Blog extends Component<Props, State> {
   _renderBlogPosts = (): Array<any> => {
     const { posts } = this.state;
 
-    return posts.map((post, index) => <BlogPosts post={post} key={`${post.id}-${index}`} />);
+    return posts.map((post, index) => (
+      <BlogPosts post={post} key={`${post.id}-${index}`} />
+    ));
   };
 
   _renderContentPlaceholders = (): Array<any> => {
     const { posts } = this.state;
 
-    return posts.map((emptyPost, index) => <ContentPlaceholder key={`placeholder-${index}`} />);
+    return posts.map((emptyPost, index) => (
+      <ContentPlaceholder key={`placeholder-${index}`} />
+    ));
   };
 
   _onClickLoadMore = (event: any) => {
     this.currentPage++;
-    const perPage = 3;
 
     this.setState({ isLoadMore: true }, async () => {
       try {
-        const response = await Posts.fetchPosts(this.currentPage, perPage);
+        const response = await Posts.fetchPosts(
+          this.currentPage,
+          this.PER_PAGE
+        );
 
         if (response.status === 200) {
           const extractedData = this._extractDataFrom(response.data);
-
           this.setState(
             update(this.state, {
               posts: { $push: extractedData },
@@ -117,7 +124,10 @@ export default class Blog extends Component<Props, State> {
     const { isReady, isLoadMore, posts } = this.state;
 
     return (
-      <Container className="my-5" style={{ minHeight: innerHeight - NAVBAR_HEIGHT - FOOTER_HEIGHT }}>
+      <Container
+        className="my-5"
+        style={{ minHeight: innerHeight - NAVBAR_HEIGHT - FOOTER_HEIGHT }}
+      >
         <div className="row">
           <div className="col">
             <p className="lead-2x">
@@ -127,13 +137,27 @@ export default class Blog extends Component<Props, State> {
         </div>
 
         <div className="row">
-          {(isReady && posts.map((post, index) => <BlogPosts post={post} key={`${post.id}-${index}`} />)) || this._renderContentPlaceholders()}
+          {(isReady &&
+            posts.map((post, index) => (
+              <BlogPosts post={post} key={`${post.id}-${index}`} />
+            ))) ||
+            this._renderContentPlaceholders()}
         </div>
         <div className="row">
           <div className="col">
             <div className="d-flex justify-content-center my-3">
-              {(isLoadMore && <FontAwesomeIcon icon={"spinner"} color={"#a577ff"} size="2x" spin />) || (
-                <LoadMore onClickLoadMoreHandler={this._onClickLoadMore} disabled={!this.state.isReady} />
+              {(isLoadMore && (
+                <FontAwesomeIcon
+                  icon={"spinner"}
+                  color={"#a577ff"}
+                  size="2x"
+                  spin
+                />
+              )) || (
+                <LoadMore
+                  onClickLoadMoreHandler={this._onClickLoadMore}
+                  disabled={!this.state.isReady}
+                />
               )}
             </div>
           </div>
@@ -146,7 +170,12 @@ export default class Blog extends Component<Props, State> {
 const ContentPlaceholder = props => (
   <div className="col-12 col-md-6 col-lg-4 text-center">
     <ContentLoader
-      style={{ height: 400, width: placeholderWidth, paddingLeft: 15, paddingRight: 15 }}
+      style={{
+        height: 400,
+        width: placeholderWidth,
+        paddingLeft: 15,
+        paddingRight: 15
+      }}
       height={400}
       width={placeholderWidth}
       speed={2}
@@ -165,7 +194,11 @@ const ContentPlaceholder = props => (
 
 const LoadMore = props => (
   <div>
-    <Button color={"primary"} onClick={props.onClickLoadMoreHandler} disabled={props.disabled}>
+    <Button
+      color={"primary"}
+      onClick={props.onClickLoadMoreHandler}
+      disabled={props.disabled}
+    >
       More
     </Button>
   </div>
