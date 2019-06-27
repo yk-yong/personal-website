@@ -17,21 +17,14 @@ export default class IntroCard extends Component<Props> {
         </div>
         <div className={"social-sec d-flex flex-row"}>
           <div className={"social-icon"}>
-            <a href={config.github_url}>
+            <a href={"https://github.com/yikkok-yong"}>
               <FontAwesomeIcon icon={["fab", "github"]} size={"3x"} />
             </a>
           </div>
           <div className={"social-icon"}>
-            <a href={config.linkedIn_url}>
+            <a href={"https://www.linkedin.com/in/yikkok-yong"}>
               <FontAwesomeIcon icon={["fab", "linkedin"]} size={"3x"} />
             </a>
-          </div>
-          <div>
-            <div className={"fiver-round d-flex justify-content-center align-items-center"}>
-              <a href={config.fiver_url} target="_blank" rel="noopener noreferrer" className="fiver-name">
-                fiver
-              </a>
-            </div>
           </div>
         </div>
       </div>

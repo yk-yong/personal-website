@@ -18,7 +18,13 @@ export default class BlogPosts extends Component<Props> {
       <div className="col-12 col-md-6 col-lg-4">
         <div className="posts-container my-4 p-2">
           <NavLink
-            to={{ pathname: `/blog/post/${this.props.post.slug}`, state: { postContent: this.props.post.content, postTitle: this.props.post.title } }}
+            to={{
+              pathname: `/blog/post/${this.props.post.slug}`,
+              state: {
+                postContent: this.props.post.content,
+                postTitle: this.props.post.title
+              }
+            }}
             className="posts-overlay"
           >
             <div className="d-flex justify-content-center align-items-center h-100 w-100">
@@ -26,15 +32,28 @@ export default class BlogPosts extends Component<Props> {
             </div>
           </NavLink>
           <div className="px-2">
-            <p className="posts-title text-primary" dangerouslySetInnerHTML={{ __html: this.props.post.title }} />
+            <p
+              className="posts-title text-primary"
+              dangerouslySetInnerHTML={{ __html: this.props.post.title }}
+              style={{ wordBreak: "break-word" }}
+            />
           </div>
           <div>
-            <p className="posts-date text-right">{moment(this.props.post.date).format(this.DATE_FORMAT)}</p>
+            <p className="posts-date text-right">
+              {moment(this.props.post.date).format(this.DATE_FORMAT)}
+            </p>
           </div>
           <div className="posts-feature-img">
-            <img src={`${this.props.post.featureImage}`} alt="feature" className="img-fluid" />
+            <img
+              src={`${this.props.post.featureImage}`}
+              alt="feature"
+              className="img-fluid"
+            />
           </div>
-          <div className="mt-3" dangerouslySetInnerHTML={{ __html: this.props.post.excerpt }} />
+          <div
+            className="mt-3"
+            dangerouslySetInnerHTML={{ __html: this.props.post.excerpt }}
+          />
         </div>
       </div>
     );
