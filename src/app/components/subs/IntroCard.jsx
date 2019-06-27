@@ -2,8 +2,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import config from "../../config.js";
-
 type Props = {};
 export default class IntroCard extends Component<Props> {
   render() {
