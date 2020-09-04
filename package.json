@@ -13,7 +13,7 @@
     "env-cmd": "^8.0.2",
     "immutability-helper": "^2.9.0",
     "moment": "^2.23.0",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "react": "^16.6.3",
     "react-animate-on-scroll": "^2.1.5",
     "react-content-loader": "^3.4.1",
